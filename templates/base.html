@@ -6,7 +6,7 @@
 </head>
 
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Titulo</a>
+  <a class="navbar-brand" href="{% url 'index' %}">Titulo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,7 +18,7 @@
           Alumnos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'nuevo_alumno' %}">Nuevo</a>
           <a class="dropdown-item" href="#">Existente</a>
         </div>
       </li>
@@ -27,7 +27,7 @@
           Examenes
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'nuevo_examen' %}">Nuevo</a>
           <a class="dropdown-item" href="#">Anteriores</a>
         </div>
       </li>

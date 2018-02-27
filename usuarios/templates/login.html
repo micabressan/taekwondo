@@ -6,21 +6,30 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
-{% block content %}
+{% block title %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Titulo</a>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="text" class="form-control mr-sm-2" placeholder="Usuario">
-      <input type="password" class="form-control mr-sm-2" placeholder="Contraseña">
-      <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Iniciar</button>
+    <form class="form-inline my-2 my-lg-0" action = "." method="post">{% csrf_token %}
+        {% if error_message != '' %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+        {% for campo in formulario_login %}
+            <div class="form-group mr-sm-2">
+                {{ campo }}
+            </div>
+        {% endfor %}
+        <button class="btn btn-primary">Ingresar</button>
     </form>
   </div>
 </nav>
+
+{% endblock %}
+
+{% block content %}
 
 <img src="https://i.imgur.com/X3REPHY.jpg">
 

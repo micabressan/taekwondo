@@ -2,51 +2,20 @@
 
 {% block content %}
 
-<form>
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="form-group col-md-6">
-        <label></label>
-      </div>
-      <div class="form-group col-md-6">
-        <label></label>
-      </div>
-      <div class="form-group col-md-6">
-        <label></label>
-      </div>
-      <div class="form-group col-md-6">
-        <label></label>
-      </div>
-      <div class="form-group col-md-6">
-        <label>Nombre</label>
-        <input class="form-control" placeholder="Nombre">
-      </div>
-      <div class="form-group col-md-6">
-        <label>Apellido</label>
-        <input class="form-control" placeholder="Apellido">
-      </div>
-      <div class="form-group col-md-6">
-        <label>Edad</label>
-        <input class="form-control" placeholder="Edad">
-      </div>
-      <div class="form-group col-md-6">
-        <label>Ciudad</label>
-        <input class="form-control" placeholder="Ciudad">
-      </div>
-      <div class="form-group col-md-6">
-        <label>Número libreta</label>
-        <input class="form-control" placeholder="Número libreta">
-      </div>
-      <div class="form-group col-md-6">
-        <label>Categoria</label>
-        <select class="form-control">
-          <option selected>Blanco (10° GUP)</option>
-          <option>Punta amarilla (9° GUP)</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-dark">Guardar</button>
-  </div>
-</form>
+    <form method="POST">
+        <div class="container">
+            <h1>Nuevo Alumno:</h1>
+            <div class="row align-items-center">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group col-md-6">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-dark">Guardar</button>
+        </div>
+    </form>
 
 {% endblock content %}

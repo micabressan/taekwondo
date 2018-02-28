@@ -8,7 +8,7 @@ class Alumno(models.Model):
         (10, 'Blanco (10º GUP)'),
         (9, 'Punta Amarilla (9º GUP)'),
     )
-    id = models.SmallIntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=10)
     apellido = models.CharField(max_length=10)
     edad = models.IntegerField()

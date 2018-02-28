@@ -3,7 +3,7 @@ from django.forms import TextInput, Select
 from alumnos.models import Alumno
 
 class NuevoAlumnoForm(forms.ModelForm):
-    
+
     class Meta:
         model = Alumno
         fields = ('nombre', 'apellido', 'edad', 'ciudad', 'numero_libreta', 'categoria',)

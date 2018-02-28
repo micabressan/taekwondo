@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from usuarios.formularios import (
+from usuarios.forms import (
     LoginForm,
     )
 

@@ -7,13 +7,13 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from usuarios.formularios import (
-    login_form,
+    LoginForm,
     )
 
 def login(request):
-    """vista login"""
+    """vista login template"""
     error_message = ""
-    formulario_login = login_form(request.POST)
+    formulario_login = LoginForm(request.POST)
     if request.POST:
         if formulario_login.is_valid():
             username = formulario_login.cleaned_data['username']
@@ -21,17 +21,20 @@ def login(request):
             current_user = authenticate(username=username,
                                         password=password)
             if current_user is not None and current_user.is_active:
-                login_form(request, current_user)
+                LoginForm(request, current_user)
                 return HttpResponseRedirect('index/')
             else:
                 error_message = "Usuario y/o contraseña incorrectos"
-    formulario_login = login_form()
+    formulario_login = LoginForm()
     return render(request, 'login.html', {'formulario_login': formulario_login,
                                         'error_message': error_message})
 
 
 def index(request):
+    """vista index template"""
     return render(request, 'index.html', {})
 
 def logout(request):
-    return render(request, 'login.html', {})
+    """vista logout template"""
+    logout(request)
+    return HttpResponseRedirect('login/')

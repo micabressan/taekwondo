@@ -3,7 +3,8 @@ from django import forms
 from django.forms import Textarea, TextInput, Select, CheckboxInput
 
 
-class login_form(forms.Form):
+class LoginForm(forms.Form):
+    """Formulario login, utilizado en la vista y template de login"""
     username = forms.CharField(widget=forms.TextInput(attrs={
                                                 'class': 'form-control',
                                                 'placeholder': 'Nombre de usuario'

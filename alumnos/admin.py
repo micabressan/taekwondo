@@ -8,7 +8,7 @@ from alumnos.models import (
 
 
 class AdminAlumnos(admin.ModelAdmin):
-    list_display = ('id', 'nombre', 'apellido', 'edad', 'ciudad', 'numero_libreta', 'categoria')
+    list_display = ('id', 'nombre', 'apellido', 'fecha_nacimiento', 'ciudad', 'numero_libreta', 'categoria')
     list_filter = ('nombre', 'categoria', 'ciudad')
     search_fields = ('nombre', 'categoria', 'ciudad')
 

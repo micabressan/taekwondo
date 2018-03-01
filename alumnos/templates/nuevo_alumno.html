@@ -4,7 +4,7 @@
 
     <form action="." method="POST"> {% csrf_token %}
         <div class="container">
-            <h1>Nuevo Alumno:</h1>
+            <h1 class="text-info text-center">Nuevo Alumno:</h1>
             <div class="row align-items-center">
             {% for field in form %}
                 <div class="form-group col-md-6">

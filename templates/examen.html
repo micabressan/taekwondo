@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="." method="GET">{% csrf_token %}
+    <div class="container">
+        <div class="row align-items-center">
+            <label for="q">Search: </label>
+            <input type="text" name="q" value="{{ query|escape }}">
+            <input type="submit" value="Buscar">
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

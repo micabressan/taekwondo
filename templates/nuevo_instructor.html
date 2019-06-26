@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="." method="POST"> {% csrf_token %}
+        <div class="container">
+            <div>
+                <h1 class="text-info text-center"></h1>
+            </div>
+            <div class="row align-items-center">
+            {% for field in form %}
+                <div class="form-group col-md-6">
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-dark">Guardar</button>
+        </div>
+    </form>
+
+{% endblock content %}

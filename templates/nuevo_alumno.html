@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="." method="POST"> {% csrf_token %}
+        <div class="container">
+            <div>
+                <h1 class="text-info text-center"></h1>
+            </div>
+            <div class="row align-items-center">
+            {% for field in form %}
+                {% if field.name != 'Observacion' %}
+                    <div class="form-group col-md-6">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% else %}
+                    <div class="form-group col-md-6">
+                        <label>{{ field.label }}</label>
+                        <textarea rows="10" cols="155">{{ field.widgets }}</textarea>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-dark">Guardar</button>
+        </div>
+    </form>
+
+{% endblock content %}
